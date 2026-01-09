@@ -62,8 +62,8 @@ main {
     display: flex;
 }
 .weather-icon {
-    font-size: 44px;
-    color: yellow;
+    width: 88px;
+   height: 88px;
 }
 .weather-Num {
     font-size: 88px;
