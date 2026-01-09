@@ -55,8 +55,8 @@ main {
     line-height: 20px;
     color: rgba(39, 33, 66, 0.6);
 }
-.weather-details strong {
-    color: pink;
+.weather-details #humidity, #windspeed{
+    color: red;
 }
 .weather-temperature {
     display: flex;
