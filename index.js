@@ -47,6 +47,28 @@ function followLink(event) {
     
     searchCity(inputElement.value);
 }
+function displayForecast() {
+ 
+   let days = ["Tue","Wed","Thurs","Fri","Sat"];
+
+   let forecastHtml = "";
+
+   days.forEach(function(day) {
+   forecastHtml = forecastHtml +
+  `<div class="weather-forecast-day"> 
+    <div class="weather-forecast-date">${day}</div> 
+     <div class="weather-forecast-icon">🌥</div> 
+      <div class="weather-forecast-temp">
+         <div class="weather-forecast-temper"><strong>15°</strong></div>
+         <div class="weather-forecast-temper"> 9°</div></div> 
+     </div>
+`;
+});
+ let forecast = document.querySelector("#forecast");
+forecast.innerHTML = forecastHtml;
+}
+
 let searchFormElement= document.querySelector("#search-form");
 searchFormElement.addEventListener("submit",followLink);
 searchCity("Mekele");
+displayForecast();
