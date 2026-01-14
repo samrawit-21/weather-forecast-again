@@ -14,11 +14,11 @@ console.log(response.data);
 iconImage.innerHTML =  `<img src="${response.data.condition.icon_url}" class="weather-icon">`
     headingElement.innerHTML = response.data.city;
     timeElement.innerHTML = formatDate(date);
-    descriptionElement.innerHTML = response.data.condition.description;
-    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+    descriptionElement.innerHTML = ` ${response.data.condition.description}`;
+    humidityElement.innerHTML = ` ${response.data.temperature.humidity}%`;
     windspeedElement.innerHTML = `${response.data.wind.speed}Km/h`;
     timeElement.innerHTML
-     console.log(response.data.condition.description);
+     getForecast(response.data.city);
 }
 function formatDate(date) {
     let minute = date.getMinutes();
@@ -47,7 +47,13 @@ function followLink(event) {
     
     searchCity(inputElement.value);
 }
-function displayForecast() {
+function getForecast(city) {
+    let apiKey = "o0334a459at0ffc9a191a1b183f3f306";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+   axios.get(apiUrl).then(displayForecast);
+}
+function displayForecast(response) {
+   console.log(response);
  
    let days = ["Tue","Wed","Thurs","Fri","Sat"];
 
@@ -71,4 +77,3 @@ forecast.innerHTML = forecastHtml;
 let searchFormElement= document.querySelector("#search-form");
 searchFormElement.addEventListener("submit",followLink);
 searchCity("Mekele");
-displayForecast();
